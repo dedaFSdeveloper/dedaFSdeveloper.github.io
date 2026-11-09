@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ezequiel Molinari · Desarrollo y automatización con IA</title>
+<meta name="description" content="Desarrollador full stack en Buenos Aires. Asistentes de IA para WhatsApp, páginas web, sistemas a medida y automatizaciones para pymes.">
+<meta property="og:title" content="Ezequiel Molinari · Desarrollo y automatización con IA">
+<meta property="og:description" content="Asistentes de IA para WhatsApp, páginas web, sistemas a medida y automatizaciones para pymes. Buenos Aires.">
+<meta property="og:url" content="https://dedafsdeveloper.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg-soft:#f5f7f6; --text:#0f1714; --muted:#55615c; --line:#e3e8e5;
+  --accent:#128c5e; --accent-strong:#0b6b47; --accent-soft:#e6f4ee; --card:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0c1210; --bg-soft:#121a17; --text:#e9efec; --muted:#9aa8a2; --line:#22302b;
+    --accent:#2fc58a; --accent-strong:#5ad8a5; --accent-soft:#143027; --card:#121a17;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+.nav nav{display:flex;gap:22px;font-size:.95rem}
+.nav nav a{text-decoration:none;color:var(--muted)}
+.nav nav a:hover{color:var(--text)}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid transparent;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-strong)}
+.btn-ghost{border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--accent)}
+.hero{padding:88px 0 64px}
+.eyebrow{display:inline-block;font-size:.85rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px;margin-bottom:20px}
+h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 20px;max-width:820px}
+.lead{font-size:1.15rem;color:var(--muted);max-width:680px;margin:0 0 32px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.stat{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card)}
+.stat b{display:block;font-size:1.9rem;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:.93rem}
+section{padding:72px 0;border-top:1px solid var(--line)}
+section.soft{background:var(--bg-soft)}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem);letter-spacing:-.02em;margin:0 0 12px}
+.sub{color:var(--muted);margin:0 0 36px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{border:1px solid var(--line);border-radius:16px;padding:26px;background:var(--card)}
+.card h3{margin:0 0 8px;font-size:1.15rem}
+.card p{margin:0 0 12px;color:var(--muted)}
+.card ul{margin:0;padding-left:18px;color:var(--muted)}
+.card li{margin:4px 0}
+.icon{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:16px}
+.icon svg{width:22px;height:22px}
+.case{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line)}
+.case:last-child{border-bottom:0}
+.case .who{font-weight:700}
+.case .who small{display:block;font-weight:500;color:var(--muted)}
+.case p{margin:0 0 8px}
+.tag{display:inline-block;font-size:.8rem;padding:3px 9px;border-radius:6px;background:var(--bg-soft);border:1px solid var(--line);color:var(--muted);margin:4px 6px 0 0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{border-top:3px solid var(--accent);padding-top:16px}
+.step::before{counter-increment:s;content:"0" counter(s);font-weight:800;color:var(--accent);font-size:.9rem}
+.step h3{margin:6px 0;font-size:1.05rem}
+.step p{margin:0;color:var(--muted);font-size:.95rem}
+.repo{display:block;text-decoration:none}
+.repo:hover{border-color:var(--accent)}
+.repo h3{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:1rem}
+.contact{text-align:center}
+.contact .sub{margin-left:auto;margin-right:auto}
+.contact .cta{justify-content:center}
+footer{padding:28px 0;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:820px){
+  .grid,.steps{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .case{grid-template-columns:1fr;gap:8px}
+  .nav nav{display:none}
+  .hero{padding:56px 0 40px}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#">Ezequiel Molinari</a>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#casos">Casos</a>
+      <a href="#como">Cómo trabajo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <span class="eyebrow">Desarrollador full stack · Buenos Aires</span>
+  <h1>Software y automatizaciones con IA para que tu negocio atienda más y trabaje menos.</h1>
+  <p class="lead">Armo asistentes de WhatsApp que responden y califican clientes, páginas web y tiendas online, y sistemas a medida para stock, cobros y ventas. Trato directo conmigo, de la primera charla al soporte.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="mailto:molinariezequiel2@gmail.com?subject=Consulta%20desde%20tu%20web">Pedí una prueba sin costo</a>
+    <a class="btn btn-ghost" href="#casos">Ver casos reales</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>100+</b><span>mensajes por día que responde un asistente de WhatsApp que tengo en producción</span></div>
+    <div class="stat"><b>50+</b><span>leads que ese asistente calificó y cargó en el CRM del cliente</span></div>
+    <div class="stat"><b>3 años</b><span>desarrollando software para negocios reales, de comercios a empresas de tecnología</span></div>
+  </div>
+</div>
+
+<section id="servicios" class="soft">
+  <div class="wrap">
+    <h2>Qué puedo hacer por tu negocio</h2>
+    <p class="sub">Soluciones concretas para problemas de todos los días. Si no sabés cuál necesitás, lo vemos juntos en una charla corta.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg></div>
+        <h3>Asistente de IA para WhatsApp</h3>
+        <p>Responde al instante, a cualquier hora, con la información real de tu negocio.</p>
+        <ul>
+          <li>Precios, horarios, disponibilidad y preguntas frecuentes</li>
+          <li>Toma los datos para el turno, la visita o el pedido</li>
+          <li>Califica a cada interesado y lo carga en tu CRM o planilla</li>
+          <li>Pasa la conversación a una persona cuando hace falta</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+        <h3>Páginas web y tiendas online</h3>
+        <p>Una web rápida, que se vea bien en el celular y te traiga consultas.</p>
+        <ul>
+          <li>Sitios institucionales y landing pages</li>
+          <li>Tiendas online e integraciones con Tiendanube</li>
+          <li>Botón de WhatsApp, formularios y medición de visitas</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+        <h3>Sistemas a medida</h3>
+        <p>Herramientas internas pensadas para cómo trabaja tu equipo.</p>
+        <ul>
+          <li>Control de stock e inventario</li>
+          <li>Gestión de cobros, pagos y clientes</li>
+          <li>CRM y paneles para ver tus ventas</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
+        <h3>Automatizaciones e integraciones</h3>
+        <p>Menos carga manual y menos errores en las tareas repetitivas.</p>
+        <ul>
+          <li>Carga masiva de productos desde facturas de proveedores</li>
+          <li>Conexión entre tus sistemas, planillas y Google Drive</li>
+          <li>Reportes automáticos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="casos">
+  <div class="wrap">
+    <h2>Casos reales</h2>
+    <p class="sub">Trabajos que están funcionando hoy en negocios reales.</p>
+
+    <div class="case">
+      <div class="who">Distribuidora<small>2026 · en producción</small></div>
+      <div>
+        <p><b>Asistente de IA en WhatsApp para el equipo de ventas.</b> Responde más de 100 mensajes por día, clasifica a los interesados, guarda los datos y los carga en el CRM. El equipo dejó de ordenar consultas a mano y se dedica a cerrar ventas: más de 50 leads pasaron por el sistema.</p>
+        <span class="tag">WhatsApp Business API</span><span class="tag">Gemini</span><span class="tag">CRM</span><span class="tag">Google Drive</span>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="who">Librería Crayon<small>Comercio y tienda online · desde 2023</small></div>
+      <div>
+        <p><b>Automatización y sistemas internos.</b> Carga masiva de productos desde las facturas de los proveedores con Python, un sistema de control de stock y una app para gestionar cobros y pagos del día. Antes, una integración con la API de Tiendanube evitó pagar un plan de carga masiva (unos ARS 30.000 por mes).</p>
+        <span class="tag">Python</span><span class="tag">Tiendanube API</span><span class="tag">Control de stock</span>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="who">GloboTechAI<small>Soluciones de IA para empresas · 2024</small></div>
+      <div>
+        <p><b>CRM para chatbots de WhatsApp.</b> Lo diseñé y desarrollé desde cero, con una interfaz igual a la de WhatsApp para que los equipos lo adoptaran sin capacitación. También integré la API de WhatsApp Business con servicios de IA para automatizar la atención.</p>
+        <span class="tag">Node.js</span><span class="tag">React</span><span class="tag">WhatsApp Business API</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como" class="soft">
+  <div class="wrap">
+    <h2>Cómo trabajo</h2>
+    <p class="sub">Simple, sin letra chica y con resultados que podés probar antes de decidir.</p>
+    <div class="steps">
+      <div class="step"><h3>Charla de 15 minutos</h3><p>Me contás cómo trabajás y dónde se pierde tiempo o se pierden clientes.</p></div>
+      <div class="step"><h3>Prueba sin costo</h3><p>Te muestro una prueba con tus propios datos, por ejemplo tus preguntas frecuentes.</p></div>
+      <div class="step"><h3>Implementación</h3><p>Lo pongo en marcha con tus herramientas y le explico a tu equipo cómo usarlo.</p></div>
+      <div class="step"><h3>Soporte</h3><p>Sigo disponible para ajustes, mejoras y dudas del día a día.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="codigo">
+  <div class="wrap">
+    <h2>Código abierto</h2>
+    <p class="sub">Algunos proyectos públicos, con tests y CI, para que veas cómo programo.</p>
+    <div class="grid">
+      <a class="card repo" href="https://github.com/dedaFSdeveloper/whatsapp-lead-qualifier">
+        <h3>whatsapp-lead-qualifier</h3>
+        <p>Convierte una conversación de WhatsApp en un lead calificado y responde solo con información del negocio (RAG). TypeScript, Gemini, 36 tests.</p>
+      </a>
+      <a class="card repo" href="https://github.com/dedaFSdeveloper/github-mcp-server">
+        <h3>github-mcp-server</h3>
+        <p>Servidor MCP que permite a agentes de IA operar GitHub en lenguaje natural. TypeScript, Octokit, Zod, Vitest.</p>
+      </a>
+      <a class="card repo" href="https://github.com/dedaFSdeveloper/gestion-productos">
+        <h3>gestion-productos</h3>
+        <p>API REST de productos, stock y descuentos. NestJS, TypeORM, PostgreSQL, tests y CI.</p>
+      </a>
+      <a class="card repo" href="https://github.com/dedaFSdeveloper/task-manager">
+        <h3>task-manager</h3>
+        <p>App de tareas con React, TypeScript, Firebase y notificaciones por mail.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact soft">
+  <div class="wrap">
+    <h2>¿Charlamos?</h2>
+    <p class="sub">Contame qué hace tu negocio y qué te gustaría resolver. Te respondo rápido con una propuesta concreta.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="mailto:molinariezequiel2@gmail.com?subject=Consulta%20desde%20tu%20web">molinariezequiel2@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/ezmolinari12">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/dedaFSdeveloper">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ezequiel Molinari · Buenos Aires, Argentina</span>
+    <span>TypeScript · React · Node.js · Python · Django · PostgreSQL · IA generativa</span>
+  </div>
+</footer>
+</body>
+</html>
